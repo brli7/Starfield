@@ -4,7 +4,7 @@ OddballParticle planet = new OddballParticle();;
 void setup() {
   background(0);
   size(800,800);
-  stars = new Particle[5000];
+  stars = new Particle[2500];
   for(int i = 0; i < stars.length; i++) {
     stars[i] = new Particle();
   }
@@ -49,14 +49,18 @@ class Particle {
   
   
   void walk() {
-    myX += Math.cos(myAngle)*mySpeed/10;
-    myY += Math.sin(myAngle)*mySpeed/10;
+    myX += Math.cos(myAngle)*mySpeed/50;
+    myY += Math.sin(myAngle)*mySpeed/50;
     mySize = startSize + (dist((float)myX,(float)myY, width/2,height/2))/sizeRate;
   }
   
   void show() {
     fill(myColor);
-    noStroke();
+    if(sizeRate == 10) {
+      strokeWeight(1);
+      stroke(50);
+    } else
+      noStroke();
     ellipse((float)myX, (float)myY, (float)mySize, (float)mySize);
   }
   
@@ -66,10 +70,10 @@ class OddballParticle extends Particle {
   OddballParticle() {
     myX = 400;
     myY = 400;
-    startSize = 1;
+    startSize = 5;
     sizeRate = 10;
     myAngle = (Math.random()*7);
-    mySpeed = (Math.random()*5)+0;
+    mySpeed = (Math.random()*8)+0.1;
     myColor = color(100,100,100);
   }
 }
