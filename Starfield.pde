@@ -51,7 +51,7 @@ class Particle {
   void walk() {
     myX += Math.cos(myAngle)*mySpeed/10;
     myY += Math.sin(myAngle)*mySpeed/10;
-    mySize = startSize - (dist((float)myX,(float)myY, width/2,height/2))/sizeRate;
+    mySize = startSize + (dist((float)myX,(float)myY, width/2,height/2))/sizeRate;
   }
   
   void show() {
