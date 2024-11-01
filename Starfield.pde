@@ -4,7 +4,7 @@ OddballParticle planet = new OddballParticle();;
 void setup() {
   background(0);
   size(800,800);
-  stars = new Particle[2500];
+  stars = new Particle[5000];
   for(int i = 0; i < stars.length; i++) {
     stars[i] = new Particle();
   }
